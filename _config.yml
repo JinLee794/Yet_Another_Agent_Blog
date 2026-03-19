@@ -1,0 +1,31 @@
+title: Operator Notes
+description: Blog, thoughts, and projects
+author: jinle
+url: "" # Set to your GitHub Pages URL, e.g. https://username.github.io
+baseurl: "/Operator_Notes" # Repository name — remove if using a custom domain
+
+permalink: /blog/:year/:month/:day/:title/
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+
+markdown: kramdown
+highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
