@@ -1,5 +1,16 @@
 <footer class="site-footer">
   <div class="container">
-    <p>&copy; {{ "now" | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+    <div class="footer-colophon">
+      <div class="footer-left">
+        <p class="footer-name">{{ site.author }}</p>
+        <p>Writing about personal software, agents, and the future of work.</p>
+      </div>
+      <div class="footer-right">
+        {% if site.github_username %}<a href="https://github.com/{{ site.github_username }}">GitHub</a>{% endif %}
+        {% if site.linkedin_username %}<a href="https://linkedin.com/in/{{ site.linkedin_username }}">LinkedIn</a>{% endif %}
+        <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+      </div>
+    </div>
+    <p class="footer-built">Built with Jekyll. Yet Another Agent Blog &copy; {{ "now" | date: "%Y" }}.</p>
   </div>
 </footer>

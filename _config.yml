@@ -1,8 +1,13 @@
-title: Operator Notes
-description: Blog, thoughts, and projects
-author: jinle
+title: Yet Another Agent Blog
+description: Essays on personal software, agentic systems, GitHub Copilot, and the changing interface between people and work.
+author: Jin Lee
 url: "" # Set to your GitHub Pages URL, e.g. https://username.github.io
-baseurl: "/Operator_Notes" # Repository name — remove if using a custom domain
+baseurl: "/Operator-Notes" # Repository name — remove if using a custom domain
+
+# Social / profile
+github_username: JinLee794
+linkedin_username: jin-lee-35033979
+profile_image: /assets/img/headshot.png
 
 permalink: /blog/:year/:month/:day/:title/
 

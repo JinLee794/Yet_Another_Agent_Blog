@@ -1,4 +1,4 @@
-# Operator Notes
+# Yet Another Agent Blog
 
 A personal blog and project site built with [Jekyll](https://jekyllrb.com/) and hosted on [GitHub Pages](https://pages.github.com/).
 
@@ -9,7 +9,7 @@ bundle install
 bundle exec jekyll serve
 ```
 
-Then open [http://localhost:4000/Operator_Notes/](http://localhost:4000/Operator_Notes/).
+Then open [http://localhost:4000/Operator-Notes/](http://localhost:4000/Operator-Notes/).
 
 ## Writing
 
