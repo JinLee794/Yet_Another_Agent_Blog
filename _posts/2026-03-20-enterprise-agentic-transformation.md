@@ -5,8 +5,6 @@ tags: [meta, agents, AI, enterprise, GitHub Copilot, personal software, MCP]
 ---
 ![1773971172562]({{ site.baseurl }}/assets/img/1773971172562.png)
 
-
-
 I have been thinking a lot lately about what agentic transformation actually means.
 
 Not as a buzzword. Not as a demo. And not as another round of excitement about what a model can generate.
@@ -23,7 +21,7 @@ Yes, it is easy to associate Copilot with coding. But I think the bigger story i
 
 That framing has become even more concrete for me through `mcaps-iq`, a project I cannot fully unpack publicly because it touches internal sales data. But the sensitive details are not really the important part. The important part is the pattern.
 
-![1773971039283]({{ site.baseurl }}/assets/img/1773971039283.png)ho
+![1773971039283]({{ site.baseurl }}/assets/img/1773971039283.png)
 
 What makes a system like this interesting is not just that it uses AI. It is that it shows what happens when an agent is grounded in real organizational work: connected to the systems where work actually happens, aware of the role of the person using it, guided by domain-specific instructions, and wrapped in human-in-the-loop trust boundaries.
 
