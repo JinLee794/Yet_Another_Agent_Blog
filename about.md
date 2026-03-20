@@ -31,7 +31,7 @@ This site is a place to think out loud a bit more than I normally would.
 
 I'm not a prolific writer and I don't write just to produce content. But some ideas are worth slowing down for, especially when things are moving this fast and the implications are this big.
 
-Operator Notes is where I put those ideas. It's more workbench than publication. Expect rough edges, honest takes, and practical notes from whatever I'm tinkering with.
+Yet Another Agent Blog is where I put those ideas. It's more workbench than publication. Expect rough edges, honest takes, and practical notes from whatever I'm tinkering with.
 
 </section>
 

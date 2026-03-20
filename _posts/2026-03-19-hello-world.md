@@ -4,7 +4,7 @@ date: 2026-03-19
 tags: [meta]
 ---
 
-This is the first post on Operator Notes. This site is a place to share thoughts, write-ups, and project notes.
+This is the first post on Yet Another Agent Blog. This site is a place to share thoughts, write-ups, and project notes.
 
 ## What to expect
 
