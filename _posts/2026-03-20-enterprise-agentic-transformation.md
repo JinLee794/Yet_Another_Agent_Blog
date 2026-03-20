@@ -5,7 +5,7 @@ tags: [meta, agents, AI, enterprise, GitHub Copilot, personal software, MCP]
 ---
 ![1773971172562]({{ site.baseurl }}/assets/img/1773971172562.png)
 
-# What Agentic Transformation Actually Looks Like Inside the Enterprise
+
 
 I have been thinking a lot lately about what agentic transformation actually means.
 
@@ -189,7 +189,7 @@ The opportunity is not just better AI outputs. It is better operational interfac
 
 That is where agents start becoming truly valuable.
 
-![unified-operation](![58]({{ site.baseurl }}/assets/img/unified-operation.png)
+![58]({{ site.baseurl }}/assets/img/unified-operation.png
 
 ## Further Reading
 

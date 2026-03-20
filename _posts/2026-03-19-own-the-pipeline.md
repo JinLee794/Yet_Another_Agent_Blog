@@ -1,9 +1,8 @@
 ---
-title: "# Own the Pipeline or Let the Platform Handle It: What a Year of Building Voice Agents Taught Me"
+title: "Own the Pipeline or Let the Platform Handle It: What a Year of Building Voice Agents Taught Me"
 date: 2026-03-19
 tags: [projects, AI, MCP, Azure Speech, realtime, enterprise]
 ---
-# Own the Pipeline or Let the Platform Handle It: What a Year of Building Voice Agents Taught Me
 
 It started with a phone call from my friend Pablo Salvadore Lopez. We'd worked together before, him, me, and another incredibly sharp engineer named Marcin Jimenez, building the [AutoAuth Solution Accelerator](https://github.com/Azure-Samples/autoauth-solution-accelerator) to automate prior authorization flows. So when Pablo called, I knew it'd be interesting.
 

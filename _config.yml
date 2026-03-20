@@ -2,7 +2,7 @@ title: Yet Another Agent Blog
 description: Essays on personal software, agentic systems, GitHub Copilot, and the changing interface between people and work.
 author: Jin Lee
 url: "" # Set to your GitHub Pages URL, e.g. https://username.github.io
-baseurl: "/Operator-Notes" # Repository name — remove if using a custom domain
+baseurl: "/Yet_Another_Agent_Blog" # Repository name — remove if using a custom domain
 
 # Social / profile
 github_username: JinLee794

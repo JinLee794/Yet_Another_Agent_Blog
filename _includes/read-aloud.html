@@ -1,0 +1,202 @@
+<!-- Read Aloud — Web Speech API narration widget -->
+<div class="read-aloud" id="read-aloud">
+  <button class="read-aloud-btn" id="read-aloud-toggle" aria-label="Read article aloud">
+    <svg class="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    <svg class="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+    <span class="read-aloud-label">Listen</span>
+  </button>
+  <button class="read-aloud-stop" id="read-aloud-stop" aria-label="Stop reading" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="1"/></svg>
+  </button>
+  <select class="read-aloud-voice" id="read-aloud-voice" aria-label="Select voice"></select>
+  <input class="read-aloud-rate" id="read-aloud-rate" type="range" min="0.5" max="2" step="0.1" value="1" aria-label="Speech rate" title="Speed">
+  <span class="read-aloud-rate-label" id="read-aloud-rate-label">1×</span>
+</div>
+
+<script>
+(function () {
+  if (!('speechSynthesis' in window)) {
+    document.getElementById('read-aloud').hidden = true;
+    return;
+  }
+
+  var synth = window.speechSynthesis;
+  var toggleBtn = document.getElementById('read-aloud-toggle');
+  var stopBtn = document.getElementById('read-aloud-stop');
+  var voiceSel = document.getElementById('read-aloud-voice');
+  var rateInput = document.getElementById('read-aloud-rate');
+  var rateLabel = document.getElementById('read-aloud-rate-label');
+  var widget = document.getElementById('read-aloud');
+  var utterance = null;
+  var speaking = false;
+  var paused = false;
+
+  // --- Voice loading ---
+  function loadVoices() {
+    var voices = synth.getVoices();
+    if (!voices.length) return;
+    voiceSel.innerHTML = '';
+    // Prefer high-quality English voices
+    // Preferred voice — exact match tried first, then fallback order
+    var defaultVoice = 'Microsoft Andrew Online (Natural)';
+    var fallbacks = ['Microsoft Andrew', 'Samantha', 'Karen', 'Daniel', 'Google US English', 'Google UK English Female', 'Microsoft Zira', 'Microsoft David'];
+    var enVoices = voices.filter(function (v) { return v.lang.startsWith('en'); });
+    var others = voices.filter(function (v) { return !v.lang.startsWith('en'); });
+    var sorted = enVoices.concat(others);
+    var selectedIndex = -1;
+    sorted.forEach(function (voice, i) {
+      var opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = voice.name + ' (' + voice.lang + ')';
+      opt.dataset.voiceName = voice.name;
+      opt.dataset.voiceLang = voice.lang;
+      voiceSel.appendChild(opt);
+      // Exact match for default voice
+      if (selectedIndex === -1 && voice.name === defaultVoice) {
+        selectedIndex = i;
+      }
+    });
+    // Fallback: try named voices, then any Natural/Premium English voice
+    if (selectedIndex === -1) {
+      for (var f = 0; f < fallbacks.length && selectedIndex === -1; f++) {
+        sorted.forEach(function (v, i) { if (selectedIndex === -1 && v.name.indexOf(fallbacks[f]) !== -1) selectedIndex = i; });
+      }
+    }
+    if (selectedIndex === -1) {
+      sorted.forEach(function (v, i) { if (selectedIndex === -1 && v.lang.startsWith('en') && (v.name.includes('Natural') || v.name.includes('Premium') || v.name.includes('Enhanced'))) selectedIndex = i; });
+    }
+    voiceSel.selectedIndex = Math.max(selectedIndex, 0);
+    // Store sorted list for later
+    voiceSel._sortedVoices = sorted;
+  }
+  loadVoices();
+  if (synth.onvoiceschanged !== undefined) {
+    synth.onvoiceschanged = loadVoices;
+  }
+
+  // --- Extract readable text from content ---
+  function getContentText() {
+    var sel = document.querySelector('.post-content') || document.querySelector('.project-content');
+    if (!sel) return '';
+    // Clone to strip code blocks, scripts, styles
+    var clone = sel.cloneNode(true);
+    clone.querySelectorAll('pre, code, script, style, .read-aloud').forEach(function (el) { el.remove(); });
+    return clone.textContent.replace(/\s+/g, ' ').trim();
+  }
+
+  // --- UI state ---
+  function setUI(state) {
+    widget.classList.remove('is-playing', 'is-paused');
+    if (state === 'playing') {
+      widget.classList.add('is-playing');
+      toggleBtn.querySelector('.read-aloud-label').textContent = 'Pause';
+      stopBtn.hidden = false;
+    } else if (state === 'paused') {
+      widget.classList.add('is-paused');
+      toggleBtn.querySelector('.read-aloud-label').textContent = 'Resume';
+      stopBtn.hidden = false;
+    } else {
+      toggleBtn.querySelector('.read-aloud-label').textContent = 'Listen';
+      stopBtn.hidden = true;
+    }
+  }
+
+  // --- Controls ---
+  toggleBtn.addEventListener('click', function () {
+    if (speaking && !paused) {
+      synth.pause();
+      paused = true;
+      setUI('paused');
+      return;
+    }
+    if (paused) {
+      synth.resume();
+      paused = false;
+      setUI('playing');
+      return;
+    }
+    startSpeaking();
+  });
+
+  stopBtn.addEventListener('click', function () {
+    synth.cancel();
+    speaking = false;
+    paused = false;
+    setUI('idle');
+  });
+
+  rateInput.addEventListener('input', function () {
+    rateLabel.textContent = parseFloat(rateInput.value).toFixed(1) + '×';
+    // If currently speaking, restart with new rate
+    if (speaking) {
+      var wasPaused = paused;
+      synth.cancel(); // triggers onend
+      speaking = false;
+      paused = false;
+      startSpeaking();
+    }
+  });
+
+  function startSpeaking() {
+    var text = getContentText();
+    if (!text) return;
+
+    // Chrome has a bug where speech stops after ~15 seconds of a long utterance.
+    // Workaround: chunk into sentences.
+    var chunks = chunkText(text, 200);
+    speakChunks(chunks, 0);
+  }
+
+  function chunkText(text, maxWords) {
+    // Split on sentence boundaries, then group into chunks under maxWords
+    var sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
+    var chunks = [];
+    var current = '';
+    sentences.forEach(function (s) {
+      if ((current + s).split(/\s+/).length > maxWords && current) {
+        chunks.push(current.trim());
+        current = '';
+      }
+      current += s + ' ';
+    });
+    if (current.trim()) chunks.push(current.trim());
+    return chunks;
+  }
+
+  function speakChunks(chunks, index) {
+    if (index >= chunks.length) {
+      speaking = false;
+      paused = false;
+      setUI('idle');
+      return;
+    }
+
+    utterance = new SpeechSynthesisUtterance(chunks[index]);
+    utterance.rate = parseFloat(rateInput.value);
+    utterance.pitch = 1;
+
+    var voices = voiceSel._sortedVoices;
+    if (voices && voices.length) {
+      utterance.voice = voices[voiceSel.selectedIndex];
+    }
+
+    utterance.onend = function () {
+      speakChunks(chunks, index + 1);
+    };
+    utterance.onerror = function (e) {
+      if (e.error === 'canceled' || e.error === 'interrupted') return;
+      speaking = false;
+      paused = false;
+      setUI('idle');
+    };
+
+    speaking = true;
+    paused = false;
+    setUI('playing');
+    synth.speak(utterance);
+  }
+
+  // Cancel speech when navigating away
+  window.addEventListener('beforeunload', function () { synth.cancel(); });
+})();
+</script>

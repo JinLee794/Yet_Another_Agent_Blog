@@ -743,6 +743,80 @@ p { margin-bottom: 1rem; }
   border-top: 1px solid var(--color-border);
 }
 
+/* ===== Read Aloud Widget ===== */
+.read-aloud {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+  padding: 0.6rem 0.85rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  flex-wrap: wrap;
+}
+
+.read-aloud-btn,
+.read-aloud-stop {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  color: var(--color-text);
+  cursor: pointer;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.85rem;
+  font-family: var(--font-sans);
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.read-aloud-btn:hover,
+.read-aloud-stop:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background: var(--color-accent-glow);
+}
+
+.read-aloud-btn svg,
+.read-aloud-stop svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Toggle play/pause icons */
+.read-aloud .icon-pause { display: none; }
+.read-aloud.is-playing .icon-play { display: none; }
+.read-aloud.is-playing .icon-pause { display: inline; }
+.read-aloud.is-paused .icon-play { display: inline; }
+.read-aloud.is-paused .icon-pause { display: none; }
+
+.read-aloud-voice {
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 0.3rem 0.4rem;
+  font-size: 0.8rem;
+  font-family: var(--font-sans);
+  max-width: 200px;
+  cursor: pointer;
+}
+
+.read-aloud-rate {
+  width: 60px;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+.read-aloud-rate-label {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  min-width: 2.5ch;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   body { font-size: 16px; }
@@ -756,4 +830,5 @@ p { margin-bottom: 1rem; }
   .topic-grid { grid-template-columns: 1fr; }
   .footer-colophon { flex-direction: column; gap: 1rem; }
   .currently { padding: 1.25rem; }
+  .read-aloud-voice { max-width: 140px; }
 }

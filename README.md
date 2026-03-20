@@ -9,7 +9,7 @@ bundle install
 bundle exec jekyll serve
 ```
 
-Then open [http://localhost:4000/Operator-Notes/](http://localhost:4000/Operator-Notes/).
+Then open [http://localhost:4000/Yet_Another_Agent_Blog/](http://localhost:4000/Yet_Another_Agent_Blog/).
 
 ## Writing
 
