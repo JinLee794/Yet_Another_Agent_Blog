@@ -1,0 +1,109 @@
+# Recent work highlights (Oct 2025 – Apr 2026)
+
+- title: "MCAPS IQ — Agentic Field Enablement Platform"
+  pillar: "Field Platform IP"
+  date_range: "Oct 2025 – Present"
+  summary: "An agentic platform I built that gives field teams AI-orchestrated CRM operations, M365 context, and workflow automation through a single interface. The idea was to create a pattern that any team could adopt — not a one-off tool for one account."
+  evidence:
+    - "Multiple contributors actively building on the platform"
+    - "Adopted as the architecture pattern for how field teams work with agentic systems"
+    - "Recognized internally for cross-segment impact"
+  tags: [agentic-ai, crm, platform, mcp]
+
+- title: "ART Voice Agent Accelerator"
+  pillar: "Field Platform IP"
+  date_range: "Q2 2025 – Present"
+  summary: "A production-ready voice AI reference architecture published as an official Azure Sample. Built to be reusable across industries — healthcare, banking, insurance — covering ACS telephony, Azure OpenAI, Speech Services, APIM, and Redis."
+  evidence:
+    - "Published under Azure-Samples as an official Microsoft open-source reference"
+    - "Cross-org v-team across GBBs, SEs, and CSAs driving field adoption"
+    - "Multi-industry variants with multi-agent handoff and synthetic test data generation"
+  tags: [voice-ai, azure, open-source, acs]
+  link: "https://github.com/Azure-Samples/art-voice-agent-accelerator"
+
+- title: "AutoAuth — AI Prior Authorization Accelerator"
+  pillar: "Field Platform IP"
+  date_range: "2024 – Present"
+  summary: "An agentic AI workflow for automating prior authorization in healthcare — using Azure OpenAI, RAG, and clinical summarization. Built as a reusable accelerator and published as an official Azure Sample so other teams can pick it up and adapt it."
+  evidence:
+    - "Published under Azure-Samples as an official Microsoft open-source reference"
+    - "95% precision in document summarization; doubled clinical review throughput"
+    - "Designed for payor workflows with RAG-based clinical evidence extraction"
+  tags: [healthcare, agentic-ai, rag, azure, open-source]
+  link: "https://github.com/Azure-Samples/autoauth-solution-accelerator"
+
+- title: "KATE — Personalized Agent Scaffolding"
+  pillar: "Field Platform IP"
+  date_range: "Q4 2025 – Present"
+  summary: "A scaffolding system that lets any SE or CSA create a personalized, role-aware agent without writing code. The point is lowering the barrier so people can adopt agentic workflows at their own pace with guardrails already built in."
+  evidence:
+    - "Onboarding prompts, industry-specific configuration, PBI integration"
+    - "Includes MCP server security guidance for safe field deployment"
+  tags: [scaffolding, agents, field-enablement]
+
+- title: "Leading Agentic Transformation Internally"
+  pillar: "V-Team Leadership"
+  date_range: "Feb 2026 – Present"
+  summary: "Initiated and lead multiple v-teams to align how the organization approaches agentic AI — covering platform architecture, voice AI, MCP servers, and personalized agent adoption. The goal is making sure these patterns scale beyond any one person or account."
+  evidence:
+    - "Cross-org coordination across agentic platforms, voice AI, and MCP architecture"
+    - "Proactively bridged gaps between product groups and field teams"
+    - "Drove architecture decisions that are now reused across multiple engagements"
+  tags: [leadership, v-team, cross-org]
+
+- title: "Security & Governance as Architecture"
+  pillar: "Security & Governance"
+  date_range: "Feb 2026 – Present"
+  summary: "Baked security and governance into every agentic system from the start. Human-approval guardrails, enterprise governance COE design, MCP security guidance, threat model reviews — treating these as first-class architecture concerns."
+  evidence:
+    - "Designed staged-write trust model: agent proposes changes, human reviews diff, human approves"
+    - "Shaped enterprise agent governance patterns (Entra RBAC, Conditional Access, registry model)"
+    - "Led production security audits finding critical issues before deployment"
+  tags: [security, governance, entra-id, rbac]
+
+- title: "Enterprise AI Platform Architecture"
+  pillar: "Customer Outcomes"
+  date_range: "Feb 2026"
+  summary: "Led architecture deep-dives that landed on APIM + AI Gateway converging to a single Foundry control plane. Designed it as a reusable pattern — the kind of thing any enterprise AI customer can adopt."
+  evidence:
+    - "Unblocked production deployment via JWT auth policy and OBO/MFA flow analysis"
+    - "Governance patterns endorsed for active enterprise pilot"
+  tags: [healthcare, enterprise, foundry, architecture]
+
+- title: "Voice Translation POC → Enterprise AI Strategy"
+  pillar: "Customer Outcomes"
+  date_range: "Feb – Apr 2026"
+  summary: "What started as a voice translation proof-of-concept turned into a full enterprise AI strategy engagement. The technical trust built through the initial POC opened the door to a much broader conversation."
+  evidence:
+    - "Engagement expanded from single POC to multi-workload enterprise roadmap"
+    - "Customer invited us for a multi-day AI ideation onsite"
+    - "Engaged specialist teams for live translation performance optimization"
+  tags: [healthcare, voice-ai, enterprise]
+
+- title: "AI Strategy & Multi-Model Architecture"
+  pillar: "Customer Outcomes"
+  date_range: "Feb 2026"
+  summary: "Led AI strategy discussions for a large healthcare ISV — PTU consolidation across multiple regions, real-time pricing analysis, and multi-model evaluation. The kind of work where getting the architecture right directly impacts their cost structure."
+  evidence:
+    - "Significant Azure OpenAI consumption at scale"
+    - "Architecture guidance across PTU strategy, regional availability, and model selection"
+  tags: [healthcare, openai, ptu, architecture]
+
+- title: "AI-Scale Architecture & Cloud Migration"
+  pillar: "Customer Outcomes"
+  date_range: "Feb 2026"
+  summary: "Helped a healthcare customer validate their AI cost projections and designed a staged approach so they could move forward without overcommitting. Along the way, surfaced a much larger cloud migration opportunity."
+  evidence:
+    - "Staged milestone approach unblocked their UAT pipeline"
+    - "Identified broader AWS→Azure migration signal across dozens of downstream orgs"
+  tags: [healthcare, scale, migration]
+
+- title: "Published Thought Leadership"
+  pillar: "Thought Leadership"
+  date_range: "Mar 2026"
+  summary: "Wrote about what agentic transformation actually looks like inside an enterprise, and built a reusable artifact library — pricing workbooks, governance positioning, POC scoping checklists — so other SEs don't have to start from scratch."
+  evidence:
+    - "Published essays on agentic transformation patterns"
+    - "Created reusable scoping checklist for voice-to-voice and CCaaS engagements"
+    - "Built cost modeling workbook for Azure real-time voice pricing"
+  tags: [writing, artifacts, field-enablement]

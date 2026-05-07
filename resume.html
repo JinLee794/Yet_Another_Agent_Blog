@@ -1,0 +1,211 @@
+---
+layout: default
+title: Resume
+permalink: /resume/
+---
+
+<div class="resume-page">
+
+<header class="resume-header">
+  <div class="resume-intro">
+    <h1>Jin Lee</h1>
+    <p class="resume-tagline">Senior Solutions Engineer at Microsoft</p>
+    <p class="resume-summary">I've spent about 9 years building things in enterprise software — platform engineering and cloud migrations at GE Healthcare, then Azure AI and agentic systems at Microsoft. Mostly in healthcare IT. I care about whether things actually hold up in production and generate real value for the people using them.</p>
+  </div>
+  <div class="resume-links">
+    {% if site.github_username %}<a href="https://github.com/{{ site.github_username }}" class="resume-link">GitHub</a>{% endif %}
+    {% if site.linkedin_username %}<a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="resume-link">LinkedIn</a>{% endif %}
+    <a href="{{ '/blog' | relative_url }}" class="resume-link">Writing</a>
+  </div>
+</header>
+
+<!-- What I Do -->
+<div class="resume-pillars-bar">
+  <div class="resume-pillar-chip">Agentic platform architecture</div>
+  <div class="resume-pillar-chip">Voice AI & real-time systems</div>
+  <div class="resume-pillar-chip">Enterprise governance & security</div>
+  <div class="resume-pillar-chip">DevSecOps & IaC at scale</div>
+  <div class="resume-pillar-chip">Open source & field enablement</div>
+</div>
+
+<hr class="section-rule">
+
+<!-- What I'm Doing Now -->
+<section class="resume-section">
+  <h2 class="resume-section-title">What I'm Building Now <span class="resume-date-range">Oct 2025 – Present</span></h2>
+  <p class="resume-section-intro">This is what I've been working on lately — agentic AI platforms, voice AI, and tools that help field teams actually do their jobs better. All of this is either in production or actively being built.</p>
+
+  {% assign pillars = "Field Platform IP,Customer Outcomes" | split: "," %}
+  {% for pillar in pillars %}
+    {% assign items = site.data.highlights | where: "pillar", pillar %}
+    {% if items.size > 0 %}
+    <div class="resume-pillar">
+      <h3 class="resume-pillar-title">{% if pillar == "Field Platform IP" %}Platform IP & Open Source{% else %}{{ pillar }}{% endif %}</h3>
+      {% for item in items %}
+      <div class="resume-highlight">
+        <div class="resume-highlight-header">
+          <strong>{{ item.title }}</strong>
+          <span class="resume-highlight-date">{{ item.date_range }}</span>
+        </div>
+        <p class="resume-highlight-summary">{{ item.summary }}</p>
+        <ul class="resume-evidence">
+          {% for e in item.evidence %}
+          <li>{{ e }}</li>
+          {% endfor %}
+        </ul>
+        {% if item.tags.size > 0 %}
+        <div class="tags">
+          {% for tag in item.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  {% endfor %}
+
+  <!-- Collapsed: Leadership & Enablement -->
+  <details class="resume-details">
+    <summary class="resume-details-summary">Leadership, Security & Thought Leadership</summary>
+    {% assign other_pillars = "V-Team Leadership,Security & Governance,Thought Leadership" | split: "," %}
+    {% for pillar in other_pillars %}
+      {% assign items = site.data.highlights | where: "pillar", pillar %}
+      {% if items.size > 0 %}
+      <div class="resume-pillar">
+        <h3 class="resume-pillar-title">{{ pillar }}</h3>
+        {% for item in items %}
+        <div class="resume-highlight">
+          <div class="resume-highlight-header">
+            <strong>{{ item.title }}</strong>
+            <span class="resume-highlight-date">{{ item.date_range }}</span>
+          </div>
+          <p class="resume-highlight-summary">{{ item.summary }}</p>
+          <ul class="resume-evidence">
+            {% for e in item.evidence %}
+            <li>{{ e }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    {% endfor %}
+  </details>
+</section>
+
+<hr class="section-rule">
+
+<!-- Career Timeline -->
+<section class="resume-section">
+  <h2 class="resume-section-title">Career</h2>
+
+  {% for job in site.data.career %}
+  <div class="career-company">
+    <div class="career-company-header">
+      <h3 class="career-company-name">{{ job.company }}</h3>
+      <span class="career-tenure">{{ job.tenure }}</span>
+    </div>
+
+    {% for role in job.roles %}
+    <div class="career-role">
+      <div class="career-role-header">
+        <strong class="career-role-title">{{ role.title }}</strong>
+        <span class="career-role-dates">{{ role.dates }}</span>
+      </div>
+      <p class="career-role-focus">{{ role.focus }}</p>
+      <ul class="resume-evidence">
+        {% for h in role.highlights %}
+        <li>{{ h }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+
+  <details class="resume-details">
+    <summary class="resume-details-summary">Earlier Career & Internships</summary>
+    <div class="career-early">
+      <div class="career-early-item">
+        <strong>GE Digital — EID Software Developer Intern</strong> <span class="career-role-dates">Jan – Aug 2016</span>
+        <p>Built a modular custom compiler using SmartSignal's Menlo language at the Industrial Performance Reliability Center.</p>
+      </div>
+      <div class="career-early-item">
+        <strong>Elemech, Inc. — Engineering Intern</strong> <span class="career-role-dates">May – Aug 2015</span>
+        <p>Created first Machine-to-Machine hybrid application with JavaScript/HTML5 and MySQL. PLC programming and ladder diagrams.</p>
+      </div>
+      <div class="career-early-item">
+        <strong>i-Kaist — Software Developer Intern</strong> <span class="career-role-dates">Jun – Aug 2014</span>
+        <p>C# / .NET development on SchoolBox platform in Daejeon, South Korea.</p>
+      </div>
+      <div class="career-early-item">
+        <strong>UIC Dept. of Surgery — Lab Assistant</strong> <span class="career-role-dates">Jun 2013 – Jul 2014</span>
+        <p>Multi-physics simulations (Solidworks, Comsol). Co-authored research publication on microfluidic islet cell devices.</p>
+      </div>
+    </div>
+  </details>
+</section>
+
+<hr class="section-rule">
+
+<!-- GitHub Projects -->
+<section class="resume-section">
+  <h2 class="resume-section-title">Open Source & Projects</h2>
+
+  {% assign categories = "agents,azure,tools,infra" | split: "," %}
+  {% assign category_labels = "Agents & AI,Azure & Cloud,Developer Tools,Infrastructure" | split: "," %}
+
+  {% for cat in categories %}
+    {% assign cat_items = site.data.github_projects | where: "category", cat %}
+    {% if cat_items.size > 0 %}
+    <div class="resume-project-category">
+      <h3 class="resume-pillar-title">{{ category_labels[forloop.index0] }}</h3>
+      <div class="resume-project-grid">
+        {% for project in cat_items %}
+        <div class="resume-project-card">
+          <div class="resume-project-name">
+            <a href="{{ project.url }}">{{ project.name }}</a>
+            {% if project.language %}<span class="resume-lang">{{ project.language }}</span>{% endif %}
+          </div>
+          <p>{{ project.description }}</p>
+          {% if project.stars > 0 or project.forks > 0 %}
+          <div class="resume-project-meta">
+            {% if project.stars > 0 %}<span>★ {{ project.stars }}</span>{% endif %}
+            {% if project.forks > 0 %}<span>⑂ {{ project.forks }}</span>{% endif %}
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  {% endfor %}
+
+  <p class="resume-github-cta">
+    <a href="https://github.com/{{ site.github_username }}">View all repositories on GitHub →</a>
+  </p>
+</section>
+
+<hr class="section-rule">
+
+<!-- Education & Credentials -->
+<section class="resume-section">
+  <h2 class="resume-section-title">Education & Credentials</h2>
+  <div class="resume-edu-grid">
+    <div class="resume-edu-item">
+      <strong>Northern Illinois University</strong>
+      <p>B.S. Computer Engineering, Cum Laude · Minor in Computer Science · 2012–2016</p>
+      <p class="resume-edu-note">Graduated with Honors · Superior Cadet Decoration Award · German Armed Forces Badge for Military Proficiency (Gold)</p>
+    </div>
+    <div class="resume-edu-item">
+      <strong>Certifications</strong>
+      <p>Microsoft Certified: Azure Solutions Architect Expert · Microsoft Certified: DevOps Engineer Expert · Certified Master Tutor · Accessibility in Action · Digital Technology Leadership Program Graduate</p>
+    </div>
+    <div class="resume-edu-item">
+      <strong>Publication</strong>
+      <p><em>A microfluidic array for real-time live-cell imaging of human and rodent pancreatic islets</em></p>
+    </div>
+  </div>
+</section>
+
+</div>

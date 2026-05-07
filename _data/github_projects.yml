@@ -1,0 +1,145 @@
+# GitHub projects — curated from github.com/JinLee794
+# Auto-populated from GitHub API; edit descriptions as needed
+
+- name: "Obsidian-Intelligence-Layer"
+  description: "TypeScript intelligence layer for Obsidian — AI-powered note enrichment and workflow automation."
+  language: "TypeScript"
+  stars: 1
+  url: "https://github.com/JinLee794/Obsidian-Intelligence-Layer"
+  category: "tools"
+
+- name: "foundry-model-availability-notifications"
+  description: "Tracks Azure AI Foundry model availability and sends notifications when new models or regions become available."
+  language: "HTML"
+  stars: 5
+  url: "https://github.com/JinLee794/foundry-model-availability-notifications"
+  homepage: "https://JinLee794.github.io/foundry-model-availability-notifications"
+  category: "azure"
+
+- name: "Showrunner"
+  description: "Storyboard-to-video rendering system for generating animated MP4 content from structured JSON."
+  language: "HTML"
+  stars: 1
+  url: "https://github.com/JinLee794/Showrunner"
+  category: "tools"
+
+- name: "SQUINT"
+  description: "Structured Query Understanding and Intelligence tool — TypeScript-based query analysis."
+  language: "TypeScript"
+  stars: 0
+  url: "https://github.com/JinLee794/SQUINT"
+  category: "tools"
+
+- name: "AgentFrameworkLabs"
+  description: "Experimentation sandbox for Microsoft Agent Framework — multi-agent patterns, evaluations, and workflow prototypes."
+  language: "Jupyter Notebook"
+  stars: 1
+  url: "https://github.com/JinLee794/AgentFrameworkLabs"
+  category: "agents"
+
+- name: "af-simple-pbi-agent"
+  description: "A simple Power BI agent built with Azure AI Agent Framework for natural-language data querying."
+  language: "Python"
+  stars: 0
+  url: "https://github.com/JinLee794/af-simple-pbi-agent"
+  category: "agents"
+
+- name: "Agent365Sandbox"
+  description: "Enterprise Agent 365 experimentation — multi-agent orchestration, governance patterns, and Copilot integration."
+  language: "Jupyter Notebook"
+  stars: 0
+  forks: 1
+  url: "https://github.com/JinLee794/Agent365Sandbox"
+  category: "agents"
+
+- name: "art-voice-agent-accelerator"
+  description: "Build, test, and ship omnichannel voice agents on Azure — ACS telephony, custom STT→LLM→TTS pipeline, Voice Live API, and Foundry Agents."
+  language: "Python"
+  stars: 0
+  url: "https://github.com/Azure-Samples/art-voice-agent-accelerator"
+  homepage: "https://azure-samples.github.io/art-voice-agent-accelerator/"
+  category: "azure"
+
+- name: "autoauth-solution-accelerator"
+  description: "AI-powered prior authorization automation for healthcare payors — Azure OpenAI, RAG, and clinical summarization."
+  language: "Python"
+  stars: 0
+  url: "https://github.com/Azure-Samples/autoauth-solution-accelerator"
+  category: "azure"
+
+- name: "Azure-Healthcare-Marketplace-Demo"
+  description: "Healthcare marketplace demo on Azure — AI-powered clinical and operational workflows."
+  language: "Python"
+  stars: 0
+  url: "https://github.com/JinLee794/Azure-Healthcare-Marketplace-Demo"
+  category: "azure"
+
+- name: "llm-evals-sandbox"
+  description: "LLM evaluation sandbox — benchmarking, comparison, and quality assessment notebooks."
+  language: "Jupyter Notebook"
+  stars: 1
+  url: "https://github.com/JinLee794/llm-evals-sandbox"
+  category: "tools"
+
+- name: "Teams-AgentLoop-Sandbox"
+  description: "Agent loop prototype for Microsoft Teams — agentic conversation patterns with TypeScript."
+  language: "TypeScript"
+  stars: 0
+  url: "https://github.com/JinLee794/Teams-AgentLoop-Sandbox"
+  category: "agents"
+
+- name: "teams-a2a-auth-client-js"
+  description: "Teams Agent-to-Agent authentication client — JavaScript SDK for secure inter-agent communication."
+  language: "JavaScript"
+  stars: 0
+  url: "https://github.com/JinLee794/teams-a2a-auth-client-js"
+  category: "agents"
+
+- name: "simple-cosmos-rag-scraper"
+  description: "Lightweight RAG data pipeline — scrapes and indexes content into Azure Cosmos DB for retrieval-augmented generation."
+  language: "Python"
+  stars: 0
+  url: "https://github.com/JinLee794/simple-cosmos-rag-scraper"
+  category: "azure"
+
+- name: "ai-foundry-sandbox"
+  description: "Azure AI Foundry infrastructure sandbox — Bicep templates for provisioning AI workloads."
+  language: "Bicep"
+  stars: 1
+  url: "https://github.com/JinLee794/ai-foundry-sandbox"
+  category: "azure"
+
+- name: "gpt-rag-genaiops-sandbox"
+  description: "GenAIOps sandbox for GPT-RAG — Bicep IaC and operational patterns for production RAG deployments."
+  language: "Bicep"
+  stars: 0
+  url: "https://github.com/JinLee794/gpt-rag-genaiops-sandbox"
+  category: "azure"
+
+- name: "jins-obsidian-env"
+  description: "Personal Obsidian vault environment — plugins, scripts, and configuration for knowledge management."
+  language: "JavaScript"
+  stars: 1
+  url: "https://github.com/JinLee794/jins-obsidian-env"
+  category: "tools"
+
+- name: "TF-Sandbox"
+  description: "Terraform sandbox for Azure infrastructure experimentation and module development."
+  language: "HCL"
+  stars: 0
+  url: "https://github.com/JinLee794/TF-Sandbox"
+  category: "infra"
+
+- name: "Azure-IaC-Sandbox"
+  description: "Azure Infrastructure-as-Code sandbox — Terraform modules for cloud resource provisioning."
+  language: "HCL"
+  stars: 0
+  url: "https://github.com/JinLee794/Azure-IaC-Sandbox"
+  category: "infra"
+
+- name: "Yet_Another_Agent_Blog"
+  description: "This site — a minimal Jekyll blog and portfolio for essays on agentic systems and developer tooling."
+  language: "HTML"
+  stars: 0
+  url: "https://github.com/JinLee794/Yet_Another_Agent_Blog"
+  category: "tools"

@@ -831,4 +831,457 @@ p { margin-bottom: 1rem; }
   .footer-colophon { flex-direction: column; gap: 1rem; }
   .currently { padding: 1.25rem; }
   .read-aloud-voice { max-width: 140px; }
+  .resume-skills-grid { grid-template-columns: 1fr; }
+  .resume-project-grid { grid-template-columns: 1fr; }
+  .resume-highlight-header { flex-direction: column; gap: 0.25rem; }
+}
+
+/* ===== Resume Page ===== */
+.resume-page { padding-top: 0.5rem; }
+
+.resume-header { margin-bottom: 0; }
+
+.resume-header h1 {
+  font-size: 2.4rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.resume-tagline {
+  font-size: 1.1rem;
+  color: var(--color-muted);
+  margin-bottom: 0.75rem;
+}
+
+.resume-summary {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+.resume-links {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.resume-link {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  color: var(--color-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 0.3rem 0.75rem;
+  text-decoration: none;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.resume-link:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  text-decoration: none;
+}
+
+/* Resume sections */
+.resume-section { margin-bottom: 0.5rem; }
+
+.resume-section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.resume-date-range {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+/* Pillars */
+.resume-pillar { margin-bottom: 2rem; }
+
+.resume-pillar-title {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Highlight cards */
+.resume-highlight {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.15s;
+}
+
+.resume-highlight:hover {
+  border-color: var(--color-accent);
+}
+
+.resume-highlight-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
+}
+
+.resume-highlight-header strong {
+  font-size: 1.05rem;
+}
+
+.resume-highlight-date {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.resume-highlight-summary {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.resume-evidence {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.resume-evidence li {
+  position: relative;
+  padding-left: 1.1rem;
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+  margin-bottom: 0.25rem;
+}
+
+.resume-evidence li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+
+/* Project grid */
+.resume-project-category { margin-bottom: 1.5rem; }
+
+.resume-project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.resume-project-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.resume-project-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 2px 12px var(--color-accent-glow);
+}
+
+.resume-project-name {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.resume-project-name a {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.resume-project-name a:hover {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.resume-lang {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-muted);
+  background: var(--color-tag-bg);
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+}
+
+.resume-project-card p {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-bottom: 0.25rem;
+  line-height: 1.5;
+}
+
+.resume-project-meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  display: flex;
+  gap: 0.75rem;
+}
+
+.resume-github-cta {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Skills grid */
+.resume-skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.resume-skill-group {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.resume-skill-group h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+.resume-skill-group p {
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* ===== Pillar Chips ===== */
+.resume-pillars-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.resume-pillar-chip {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-accent);
+  background: var(--color-accent-glow);
+  border: 1px solid var(--color-accent);
+  border-radius: 100px;
+  padding: 0.3rem 0.85rem;
+  white-space: nowrap;
+}
+
+/* Section intro */
+.resume-section-intro {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  max-width: 620px;
+}
+
+/* ===== Career Timeline ===== */
+.career-company {
+  margin-bottom: 2rem;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--color-border);
+}
+
+.career-company-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+}
+
+.career-company-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.career-tenure {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.career-role {
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.career-role-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.career-role-title {
+  font-size: 1rem;
+}
+
+.career-role-dates {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.career-role-focus {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  margin-bottom: 0.5rem;
+}
+
+/* ===== Collapsible Details ===== */
+.resume-details {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.resume-details-summary {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  transition: color 0.15s, border-color 0.15s;
+  list-style: none;
+}
+
+.resume-details-summary::-webkit-details-marker { display: none; }
+
+.resume-details-summary::before {
+  content: "▸ ";
+  color: var(--color-accent);
+}
+
+.resume-details[open] > .resume-details-summary::before {
+  content: "▾ ";
+}
+
+.resume-details-summary:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.resume-details[open] > .resume-details-summary {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-bottom: 0;
+}
+
+.resume-details > :not(summary) {
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+/* Early career */
+.career-early { padding: 0.5rem 0; }
+
+.career-early-item {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.career-early-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.career-early-item strong {
+  font-size: 0.95rem;
+}
+
+.career-early-item .career-role-dates {
+  margin-left: 0.5rem;
+}
+
+.career-early-item p {
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  margin: 0.25rem 0 0;
+  line-height: 1.5;
+}
+
+/* ===== Education Grid ===== */
+.resume-edu-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.resume-edu-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+}
+
+.resume-edu-item strong {
+  font-size: 0.95rem;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.resume-edu-item p {
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  margin-bottom: 0.25rem;
+  line-height: 1.5;
+}
+
+.resume-edu-item p:last-child { margin-bottom: 0; }
+
+.resume-edu-note {
+  font-size: 0.82rem !important;
+  font-style: italic;
+}
+
+/* Responsive additions */
+@media (max-width: 600px) {
+  .career-company-header { flex-direction: column; gap: 0.15rem; }
+  .career-role-header { flex-direction: column; gap: 0.15rem; }
 }
