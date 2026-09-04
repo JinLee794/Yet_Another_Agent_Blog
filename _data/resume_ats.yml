@@ -1,0 +1,169 @@
+# Single source of truth for the downloadable resume (.docx and .pdf).
+#
+# Rendered by:
+#   resume-print.html  -> print-optimized web page -> assets/Jin-Lee-Resume.pdf
+#   tools/build_resume_docx.py -> assets/Jin-Lee-Resume.docx
+#
+# Structure is intentionally flat and single-column so applicant tracking
+# systems (ATS) parse it reliably. Do not add tables, columns, or images.
+
+name: Jin Lee
+headline: Agentic Systems Architect | Enterprise AI | MCP | Azure AI
+
+contact:
+  - Chicago, IL
+  - github.com/JinLee794
+  - linkedin.com/in/jin-lee-35033979
+  - jinlee794.github.io/Yet_Another_Agent_Blog
+
+summary: >-
+  Agentic systems architect and senior solutions engineer with 9+ years building production
+  enterprise software, generative AI and large language model (LLM) platforms, cloud
+  infrastructure, and developer tooling. Connects frontier models to real business systems
+  with grounded context, human control, security, evaluation, and observability, turning
+  prototypes into reusable products, engineering communities, and measurable customer impact.
+
+skills:
+  - label: Agentic AI & LLMs
+    items: >-
+      Generative AI; large language models (LLMs); agent platforms and orchestration;
+      Model Context Protocol (MCP); typed tool design; human-in-the-loop workflows
+  - label: Grounding & Azure AI Platform
+    items: >-
+      Retrieval-augmented generation (RAG); knowledge graphs; Azure AI Search;
+      Azure AI Foundry; Microsoft Agent Framework; Azure OpenAI; voice and real-time AI
+  - label: Trust, Evaluation & Governance
+    items: >-
+      Agent evaluation; agent security and governance; prompt-injection defenses;
+      Microsoft Entra RBAC; Conditional Access; observability and audit logging
+  - label: Languages & Frameworks
+    items: TypeScript; JavaScript; Python; React; Node.js; FastAPI
+  - label: Infrastructure & DevOps
+    items: >-
+      Azure; AWS; Bicep; Terraform; Kubernetes; Docker; GitHub Actions; CodeQL;
+      DevSecOps; infrastructure as code
+
+impact_heading: Selected Agentic Impact
+impact:
+  - Architected and shipped a role-aware enterprise agent platform spanning CRM, Microsoft 365,
+    BI, and local knowledge; scaled it into a multi-contributor product demonstrated to nearly
+    200 field practitioners.
+  - Engineered production MCP servers with typed read, write, search, and composite tools plus
+    staged changes, before-and-after diffs, explicit approval, ownership checks, entity
+    allowlists, and structured audit logs.
+  - Built a permission-aware knowledge platform on SharePoint and Azure AI Search with graph
+    metadata, stable citations, de-identification, freshness ranking, and a governed MCP gateway.
+  - Hardened agentic applications with regression evaluations, synthetic test personas, threat
+    models, CodeQL, security headers, Log Analytics, accessibility remediation, and hot-path
+    performance optimization.
+  - Productized agent patterns into GitHub Copilot CLI plugins, canvas extensions, role
+    workspaces, skills, prompts, runbooks, and reusable fast-start distributions.
+  - Created the ART Voice Agent Accelerator, an official Azure Sample with 70+ stars and 60+
+    forks, and led cross-functional communities for agent platforms, voice AI, and MCP
+    architecture.
+
+experience:
+  - company: Microsoft
+    roles:
+      - title: Senior Solutions Engineer
+        dates: September 2025 - Present
+        focus: Azure AI, App Innovation & Agentic Systems
+        bullets:
+          - Own solution architecture and hands-on engineering across Azure AI, application
+            innovation, GitHub Copilot, and enterprise agent experiences.
+          - Partner with security reviewers, product groups, and field teams to move agent
+            solutions from prototype through governance to production readiness.
+          - Guide enterprise AI platform architecture across API gateways, Azure AI Foundry,
+            authentication, regional capacity, model selection, and multi-model economics.
+          - Expand focused proofs of concept into enterprise strategies, and turn implementation
+            lessons into reusable workshops, architecture diagrams, governance guidance, and
+            field engineering assets.
+      - title: Cloud Solutions Architect
+        dates: July 2022 - September 2025
+        focus: Healthcare & Life Sciences
+        bullets:
+          - Co-led an enterprise voice agent for a large insurance carrier using Azure
+            Communication Services, Azure OpenAI, and Speech Services, automating high-volume
+            contact-center workflows and reducing operating costs.
+          - Built the AutoAuth Solution Accelerator for AI-powered prior authorization; achieved
+            95% summarization precision, doubled clinical review throughput, and published it as
+            an official Azure Sample.
+          - Led DevSecOps and infrastructure-as-code transformations with Terraform and GitHub
+            Advanced Security, cutting onboarding by 10+ days and increasing deployment velocity
+            300-400%.
+          - Mentored teams in global Microsoft AI hackathons, creating follow-on customer
+            engagements and Azure consumption growth.
+      - title: Customer Engineer
+        dates: November 2021 - July 2022
+        focus: Azure Platform Onboarding
+        bullets:
+          - Enabled enterprise customers on Azure infrastructure, compute, identity, and DevOps
+            tooling through architecture guidance and hands-on delivery.
+
+  - company: GE Healthcare
+    roles:
+      - title: Staff Software Engineer
+        dates: April 2021 - November 2021
+        focus: CTO Platform Team
+        bullets:
+          - Led enterprise Azure environment buildout using Azure Kubernetes Service, Terraform,
+            Terragrunt, and Azure DevOps CI/CD.
+          - Developed Ansible automation for Linux and Windows patching, configuration, and
+            security standardization, and mentored teams on code-driven infrastructure.
+      - title: Senior Build & Release Engineer
+        dates: August 2019 - April 2021
+        focus: Cloud Migration & Platform Engineering
+        bullets:
+          - Architected an Azure landing zone covering identity and access, virtual networks,
+            secrets, and certificate management, with automated certificate rotation built on
+            Python, Docker, and Azure Container Instances.
+          - Delivered Docker Swarm and Amazon EKS migration infrastructure on AWS using Terraform
+            and Jenkins.
+
+  - company: GE Digital
+    roles:
+      - title: Digital Technology Leadership Program
+        dates: June 2017 - May 2019
+        focus: Cloud, Networking, Frontend & Service Management Rotations
+        bullets:
+          - Built a serverless role-based access control module with AWS Lambda, Amazon RDS, and
+            API Gateway that reduced deployment time by 95%.
+          - Developed a React dashboard with Azure Active Directory authentication, a Node.js API,
+            and MongoDB; expanded ServiceNow capabilities across GE businesses.
+
+open_source:
+  - name: ART Voice Agent Accelerator
+    org: Azure Samples
+    description: >-
+      Production omnichannel voice agent architecture on Azure Communication Services, custom
+      speech pipelines, Voice Live API, Foundry Agents, APIM, and Redis.
+    url: github.com/Azure-Samples/art-voice-agent-accelerator
+  - name: Obsidian Intelligence Layer
+    description: >-
+      TypeScript MCP server giving agents ranked search, targeted reads, domain tools, and
+      conflict-safe writes.
+    url: github.com/JinLee794/Obsidian-Intelligence-Layer
+  - name: Azure AI Foundry Model Availability Tracker
+    description: >-
+      Automated regional model availability monitoring with scheduled GitHub Actions, change
+      notifications, and a live dashboard.
+    url: github.com/JinLee794/foundry-model-availability-notifications
+
+education:
+  school: Northern Illinois University
+  degree: Bachelor of Science in Computer Engineering, Cum Laude
+  detail: Minor in Computer Science
+  dates: 2012 - 2016
+  honors: Superior Cadet Decoration Award; German Armed Forces Badge for Military Proficiency, Gold
+
+certifications:
+  - "Microsoft Certified: Azure Solutions Architect Expert"
+  - "Microsoft Certified: DevOps Engineer Expert"
+  - Accessibility in Action
+  - Certified Master Tutor
+  - Digital Technology Leadership Program Graduate
+
+# Optional. Both renderers omit the section entirely when this key is absent,
+# so it can be dropped to keep the resume at two pages.
+# publication:
+#   title: A microfluidic array for real-time live-cell imaging of human and rodent pancreatic islets

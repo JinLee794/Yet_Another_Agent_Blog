@@ -1,0 +1,35 @@
+- title: "Agent Platforms & Orchestration"
+  summary: "Designs role-aware agents that coordinate CRM, Microsoft 365, BI, and knowledge systems through natural-language workflows."
+  proof:
+    - "Multi-surface delivery across GitHub Copilot, VS Code, CLI plugins, and interactive canvases"
+    - "Composite workflows that move from context gathering to recommendation and governed action"
+
+- title: "MCP & Tool Engineering"
+  summary: "Builds production MCP servers and typed tool surfaces that connect agents to enterprise systems without exposing unrestricted access."
+  proof:
+    - "Read, write, territory, search, and higher-order composite tools"
+    - "Strict tool filtering, entity allowlists, pagination controls, and identity-aware execution"
+
+- title: "Grounding & Knowledge Systems"
+  summary: "Turns fragmented enterprise content into permission-aware context that agents can retrieve, cite, and reason over."
+  proof:
+    - "SharePoint, Azure AI Search, structured knowledge graphs, RAG, and local knowledge stores"
+    - "Stable citations, de-identification, freshness ranking, and customer-signal grounding"
+
+- title: "Trust, Security & Governance"
+  summary: "Treats agent safety as architecture: every consequential action is reviewable, attributable, and bounded."
+  proof:
+    - "Staged writes, before-and-after diffs, explicit approval, ownership checks, and post-write verification"
+    - "Threat modeling, Entra RBAC, Conditional Access, prompt-injection guidance, CodeQL, and audit logging"
+
+- title: "Production Engineering, Evaluation & Observability"
+  summary: "Hardens generative AI and agentic systems for real users with evaluation, deployment automation, telemetry, reliability controls, and measurable performance work."
+  proof:
+    - "Regression evaluations, synthetic test personas, quality gates, deterministic workflows, and model comparison"
+    - "Bicep, GitHub Actions, Log Analytics, structured telemetry, caching, accessibility, and hot-path optimization"
+
+- title: "Productization & Adoption"
+  summary: "Converts successful prototypes into reusable products that other teams can install, personalize, govern, and extend."
+  proof:
+    - "Bootstrap installers, role workspaces, skills, prompts, runbooks, and reusable fast-start distributions"
+    - "Cross-functional technical-community leadership, field enablement, open-source accelerators, and contributor growth"

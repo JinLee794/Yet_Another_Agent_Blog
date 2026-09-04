@@ -105,15 +105,36 @@ title: Home
   </div>
 </section>
 
-{% if site.projects.size > 0 %}
+{% assign featured_projects = site.data.github_projects | sort: "rank" | reverse %}
+{% if featured_projects.size > 0 %}
 <section class="home-section">
-  <h2 class="section-heading">Projects</h2>
+  <div class="home-section-header">
+    <h2 class="section-heading">Projects</h2>
+    <a href="{{ '/projects' | relative_url }}">All projects &rarr;</a>
+  </div>
   <div class="project-grid">
-    {% for project in site.projects limit:3 %}
-    <div class="project-card">
-      <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+    {% for project in featured_projects limit:3 %}
+    <article class="project-card">
+      <div class="project-card-head">
+        <h3><a href="{{ project.url }}">{{ project.name }}</a></h3>
+        <div class="project-badges">
+          {% if project.source and project.source != "JinLee794" %}
+          <span class="project-badge project-badge-source">{{ project.source }}</span>
+          {% endif %}
+        </div>
+      </div>
       {% if project.description %}<p>{{ project.description }}</p>{% endif %}
-    </div>
+      {% if project.topics %}
+      <ul class="project-topics">
+        {% for topic in project.topics %}<li>{{ topic }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+      <div class="project-meta">
+        {% if project.language %}<span class="project-lang">{{ project.language }}</span>{% endif %}
+        <span title="Stars">&#9733; {{ project.stars }}</span>
+        <span title="Forks">&#10547; {{ project.forks }}</span>
+      </div>
+    </article>
     {% endfor %}
   </div>
 </section>

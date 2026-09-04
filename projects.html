@@ -3,17 +3,138 @@ layout: default
 title: Projects
 permalink: /projects/
 ---
+{%- comment -%}
+  Projects are sourced from _data/github_projects.yml and ordered by `rank`
+  (stars * 1000 + forks), because Liquid cannot sort on two keys at once.
+{%- endcomment -%}
+{%- assign projects = site.data.github_projects | sort: "rank" | reverse -%}
+{%- comment -%} Jekyll's `sum` filter is unavailable here, so totals are accumulated. {%- endcomment -%}
+{%- assign total_stars = 0 -%}
+{%- assign total_forks = 0 -%}
+{%- for project in projects -%}
+  {%- assign total_stars = total_stars | plus: project.stars -%}
+  {%- assign total_forks = total_forks | plus: project.forks -%}
+{%- endfor -%}
+
+{%- comment -%} Build the topic vocabulary and per-topic counts. {%- endcomment -%}
+{%- assign topic_blob = "" -%}
+{%- for project in projects -%}
+  {%- for topic in project.topics -%}
+    {%- assign topic_blob = topic_blob | append: topic | append: "|" -%}
+  {%- endfor -%}
+{%- endfor -%}
+{%- assign topic_all = topic_blob | split: "|" -%}
+{%- assign topic_names = topic_all | uniq | sort -%}
+
 <h1 class="page-title">Projects</h1>
 
-<div class="project-grid">
-  {% for project in site.projects %}
-  <div class="project-card">
-    <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
-    {% if project.description %}<p>{{ project.description }}</p>{% endif %}
-  </div>
-  {% endfor %}
+<p class="page-intro">
+  Public repositories I build and contribute to on
+  <a href="https://github.com/JinLee794">@JinLee794</a>, alongside the upstream
+  <a href="https://github.com/Azure-Samples">Azure Samples</a> accelerators I help maintain.
+  Ordered by stars, then forks. Tags describe the themes each repo explores.
+</p>
+
+<div class="projects-stats">
+  <span><strong>{{ projects | size }}</strong> repositories</span>
+  <span><strong>{{ total_stars }}</strong> stars</span>
+  <span><strong>{{ total_forks }}</strong> forks</span>
+  <span><strong>{{ topic_names | size }}</strong> themes</span>
 </div>
 
-{% if site.projects.size == 0 %}
-<p>No projects yet. Check back soon!</p>
-{% endif %}
+<div class="topic-filter" data-topic-filter>
+  <button type="button" class="topic-chip is-active" data-topic="all">
+    All <span class="topic-count">{{ projects | size }}</span>
+  </button>
+  {%- for topic in topic_names -%}
+  {%- assign topic_count = topic_all | where_exp: "t", "t == topic" | size -%}
+  <button type="button" class="topic-chip" data-topic="{{ topic }}">
+    {{ topic }} <span class="topic-count">{{ topic_count }}</span>
+  </button>
+  {%- endfor -%}
+</div>
+
+<div class="project-grid" data-project-grid>
+  {%- for project in projects -%}
+  <article class="project-card" data-topics="{{ project.topics | join: '|' }}">
+    <div class="project-card-head">
+      <h3><a href="{{ project.url }}">{{ project.name }}</a></h3>
+      <div class="project-badges">
+        {%- if project.source and project.source != "JinLee794" -%}
+        <span class="project-badge project-badge-source">{{ project.source }}</span>
+        {%- endif -%}
+        {%- if project.role -%}
+        <span class="project-badge project-badge-role">{{ project.role }}</span>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <p>{{ project.description }}</p>
+
+    {%- if project.topics -%}
+    <ul class="project-topics">
+      {%- for topic in project.topics -%}
+      <li>{{ topic }}</li>
+      {%- endfor -%}
+    </ul>
+    {%- endif -%}
+
+    <div class="project-meta">
+      {%- if project.language %}<span class="project-lang">{{ project.language }}</span>{% endif -%}
+      <span title="Stars">&#9733; {{ project.stars }}</span>
+      <span title="Forks">&#10547; {{ project.forks }}</span>
+      {%- if project.homepage %}<a href="{{ project.homepage }}">Live site</a>{% endif -%}
+    </div>
+  </article>
+  {%- endfor -%}
+</div>
+
+<p class="project-empty" data-project-empty hidden>No projects match that theme.</p>
+
+{%- if site.projects.size > 0 -%}
+<section class="projects-writeups">
+  <h2 class="section-heading">Write-ups</h2>
+  <div class="project-grid">
+    {%- for project in site.projects -%}
+    <article class="project-card">
+      <div class="project-card-head">
+        <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+      </div>
+      {%- if project.description %}<p>{{ project.description }}</p>{% endif -%}
+    </article>
+    {%- endfor -%}
+  </div>
+</section>
+{%- endif -%}
+
+<script>
+  // Progressive enhancement: without JS every card stays visible.
+  (function () {
+    var filter = document.querySelector('[data-topic-filter]');
+    var grid = document.querySelector('[data-project-grid]');
+    var empty = document.querySelector('[data-project-empty]');
+    if (!filter || !grid) return;
+
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.project-card'));
+
+    filter.addEventListener('click', function (event) {
+      var button = event.target.closest('.topic-chip');
+      if (!button) return;
+
+      var topic = button.getAttribute('data-topic');
+      filter.querySelectorAll('.topic-chip').forEach(function (chip) {
+        chip.classList.toggle('is-active', chip === button);
+      });
+
+      var visible = 0;
+      cards.forEach(function (card) {
+        var topics = (card.getAttribute('data-topics') || '').split('|');
+        var show = topic === 'all' || topics.indexOf(topic) !== -1;
+        card.hidden = !show;
+        if (show) visible++;
+      });
+
+      if (empty) empty.hidden = visible !== 0;
+    });
+  })();
+</script>

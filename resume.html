@@ -9,11 +9,25 @@ permalink: /resume/
 <header class="resume-header">
   <div class="resume-intro">
     <h1>Jin Lee</h1>
-    <p class="resume-tagline">Senior Solutions Engineer at Microsoft</p>
-    <p class="resume-summary">I've spent about 9 years building things in enterprise software — platform engineering and cloud migrations at GE Healthcare, then Azure AI and agentic systems at Microsoft. Mostly in healthcare IT. I care about whether things actually hold up in production and generate real value for the people using them.</p>
+    <p class="resume-tagline">Agentic Systems Architect · Senior Solutions Engineer at Microsoft</p>
+    <p class="resume-summary">I design and ship enterprise agentic systems that connect frontier models to real work — CRM, Microsoft 365, BI, knowledge, and operational platforms. My focus is the engineering beyond the demo: grounded context, safe actions, human approval, security, observability, and product experiences that people can adopt at scale.</p>
   </div>
   <div class="resume-links">
-    {% if site.github_username %}<a href="https://github.com/{{ site.github_username }}" class="resume-link">GitHub</a>{% endif %}
+    <a href="{{ '/assets/Jin-Lee-Resume.pdf' | relative_url }}"
+       class="resume-link resume-download-link"
+       download="Jin-Lee-Resume.pdf"
+       type="application/pdf">Download resume (PDF)</a>
+    <a href="{{ '/assets/Jin-Lee-Resume.docx' | relative_url }}"
+       class="resume-link resume-download-link resume-download-alt"
+       download="Jin-Lee-Resume.docx"
+       type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">Word (.docx)</a>
+    {% if site.github_profiles %}
+      {% for profile in site.github_profiles %}
+      <a href="{{ profile.url }}" class="resume-link">GitHub · {{ profile.label }}</a>
+      {% endfor %}
+    {% elsif site.github_username %}
+      <a href="https://github.com/{{ site.github_username }}" class="resume-link">GitHub</a>
+    {% endif %}
     {% if site.linkedin_username %}<a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="resume-link">LinkedIn</a>{% endif %}
     <a href="{{ '/blog' | relative_url }}" class="resume-link">Writing</a>
   </div>
@@ -21,19 +35,41 @@ permalink: /resume/
 
 <!-- What I Do -->
 <div class="resume-pillars-bar">
-  <div class="resume-pillar-chip">Agentic platform architecture</div>
-  <div class="resume-pillar-chip">Voice AI & real-time systems</div>
-  <div class="resume-pillar-chip">Enterprise governance & security</div>
-  <div class="resume-pillar-chip">DevSecOps & IaC at scale</div>
-  <div class="resume-pillar-chip">Open source & field enablement</div>
+  <div class="resume-pillar-chip">Agent platforms & orchestration</div>
+  <div class="resume-pillar-chip">MCP tools & safe actions</div>
+  <div class="resume-pillar-chip">Knowledge grounding & RAG</div>
+  <div class="resume-pillar-chip">Security, governance & observability</div>
+  <div class="resume-pillar-chip">Productization & enterprise adoption</div>
 </div>
+
+<hr class="section-rule">
+
+<!-- Agentic Engineering Capabilities -->
+<section class="resume-section">
+  <h2 class="resume-section-title">Agentic Engineering Capabilities</h2>
+  <p class="resume-section-intro">The recurring themes across my public and enterprise-managed work, expressed without exposing private project details.</p>
+
+  <div class="resume-capability-grid">
+    {% for capability in site.data.agentic_capabilities %}
+    <article class="resume-capability-card">
+      <h3>{{ capability.title }}</h3>
+      <p>{{ capability.summary }}</p>
+      <ul class="resume-evidence">
+        {% for item in capability.proof %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </article>
+    {% endfor %}
+  </div>
+</section>
 
 <hr class="section-rule">
 
 <!-- What I'm Doing Now -->
 <section class="resume-section">
-  <h2 class="resume-section-title">What I'm Building Now <span class="resume-date-range">Oct 2025 – Present</span></h2>
-  <p class="resume-section-intro">This is what I've been working on lately — agentic AI platforms, voice AI, and tools that help field teams actually do their jobs better. All of this is either in production or actively being built.</p>
+  <h2 class="resume-section-title">Selected Agentic Impact <span class="resume-date-range">2025 – Present</span></h2>
+  <p class="resume-section-intro">Recent work that demonstrates how I turn agent concepts into secure platforms, reusable engineering patterns, and measurable business outcomes.</p>
 
   {% assign pillars = "Field Platform IP,Customer Outcomes" | split: "," %}
   {% for pillar in pillars %}
@@ -44,7 +80,9 @@ permalink: /resume/
       {% for item in items %}
       <div class="resume-highlight">
         <div class="resume-highlight-header">
-          <strong>{{ item.title }}</strong>
+          <strong>
+            {% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}
+          </strong>
           <span class="resume-highlight-date">{{ item.date_range }}</span>
         </div>
         <p class="resume-highlight-summary">{{ item.summary }}</p>
@@ -72,7 +110,7 @@ permalink: /resume/
       {% assign items = site.data.highlights | where: "pillar", pillar %}
       {% if items.size > 0 %}
       <div class="resume-pillar">
-        <h3 class="resume-pillar-title">{{ pillar }}</h3>
+        <h3 class="resume-pillar-title">{% if pillar == "V-Team Leadership" %}Cross-Functional Leadership{% else %}{{ pillar }}{% endif %}</h3>
         {% for item in items %}
         <div class="resume-highlight">
           <div class="resume-highlight-header">
@@ -151,6 +189,22 @@ permalink: /resume/
 <!-- GitHub Projects -->
 <section class="resume-section">
   <h2 class="resume-section-title">Open Source & Projects</h2>
+  <p class="resume-section-intro">A curated view across my GitHub identities. Public projects and Azure Samples are listed below; work from my enterprise-managed Microsoft account stays private unless it is released through an official open-source repository.</p>
+
+  <div class="resume-profile-grid">
+    {% for profile in site.github_profiles %}
+    <article class="resume-profile-card">
+      <div class="resume-profile-header">
+        <strong>{{ profile.label }} GitHub</strong>
+        <a href="{{ profile.url }}">@{{ profile.username }}</a>
+      </div>
+      <p>{{ profile.description }}</p>
+      {% if profile.managed %}
+      <span class="resume-profile-access">Managed account · access may require Microsoft authentication</span>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
 
   {% assign categories = "agents,azure,tools,infra" | split: "," %}
   {% assign category_labels = "Agents & AI,Azure & Cloud,Developer Tools,Infrastructure" | split: "," %}
@@ -168,8 +222,9 @@ permalink: /resume/
             {% if project.language %}<span class="resume-lang">{{ project.language }}</span>{% endif %}
           </div>
           <p>{{ project.description }}</p>
-          {% if project.stars > 0 or project.forks > 0 %}
+          {% if project.source or project.stars > 0 or project.forks > 0 %}
           <div class="resume-project-meta">
+            {% if project.source %}<span>{{ project.source }}</span>{% endif %}
             {% if project.stars > 0 %}<span>★ {{ project.stars }}</span>{% endif %}
             {% if project.forks > 0 %}<span>⑂ {{ project.forks }}</span>{% endif %}
           </div>
@@ -182,7 +237,9 @@ permalink: /resume/
   {% endfor %}
 
   <p class="resume-github-cta">
-    <a href="https://github.com/{{ site.github_username }}">View all repositories on GitHub →</a>
+    {% for profile in site.github_profiles %}
+      <a href="{{ profile.url }}">View {{ profile.label | downcase }} profile →</a>{% unless forloop.last %}<span aria-hidden="true"> · </span>{% endunless %}
+    {% endfor %}
   </p>
 </section>
 

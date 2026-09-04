@@ -6,6 +6,16 @@ baseurl: "/Yet_Another_Agent_Blog" # Repository name — remove if using a custo
 
 # Social / profile
 github_username: JinLee794
+github_profiles:
+  - username: JinLee794
+    label: Public
+    url: "https://github.com/JinLee794"
+    description: "Open-source agents, MCP tooling, Azure AI experiments, and developer tools."
+  - username: jinle_microsoft
+    label: Microsoft
+    url: "https://github.com/jinle_microsoft"
+    description: "Enterprise-managed GitHub identity. Private and internal repositories are intentionally omitted from this public resume."
+    managed: true
 linkedin_username: jin-lee-35033979
 profile_image: /assets/img/headshot.png
 
